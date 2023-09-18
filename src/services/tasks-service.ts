@@ -6,8 +6,14 @@ async function createTask(task: Task) {
   await tasksRepository.createTask(name, description, day, author, status);
 }
 
+async function getAllTasks(): Promise<Array<Task>> {
+  const tasks: Array<Task> = await tasksRepository.getAllTasks();
+  return tasks;
+}
+
 const tasksService = {
-  createTask
+  createTask,
+  getAllTasks
 }
 
 export default tasksService;

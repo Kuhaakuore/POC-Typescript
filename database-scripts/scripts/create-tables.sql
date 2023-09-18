@@ -4,5 +4,5 @@ CREATE TABLE tasks (
 	description TEXT,
 	day VARCHAR(20) NOT NULL,
 	author VARCHAR(100) NOT NULL,
-	status VARCHAR(10) NOT NULL DEFAULT 'incomplete'
+	status VARCHAR(10) NOT NULL
 );

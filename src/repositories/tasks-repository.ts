@@ -1,4 +1,5 @@
 import { connection } from "@/configs/db-connection";
+import { Task } from "@/protocols";
 
 async function createTask(
   name: string,
@@ -14,8 +15,14 @@ async function createTask(
   );
 }
 
+async function getAllTasks(): Promise<Array<Task>> {
+  const tasks = await connection.query(`SELECT * FROM tasks`);
+  return tasks.rows as Array<Task>;
+}
+
 const tasksRepository = {
-  createTask
+  createTask,
+  getAllTasks,
 }
 
 export { tasksRepository };
