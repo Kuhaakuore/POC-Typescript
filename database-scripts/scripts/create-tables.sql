@@ -1,0 +1,8 @@
+CREATE TABLE tasks (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	description TEXT,
+	day VARCHAR(20) NOT NULL,
+	author VARCHAR(100) NOT NULL,
+	status VARCHAR(10) NOT NULL DEFAULT 'incomplete'
+);
