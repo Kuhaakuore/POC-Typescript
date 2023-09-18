@@ -15,14 +15,21 @@ async function createTask(
   );
 }
 
-async function getAllTasks(): Promise<Array<Task>> {
+async function retrieveAllTasks(): Promise<Array<Task>> {
   const tasks = await connection.query(`SELECT * FROM tasks`);
   return tasks.rows as Array<Task>;
 }
 
+async function updateTask(id: number) {
+  await connection.query(`UPDATE tasks SET status = 'done' WHERE id = $1`, [
+    id,
+  ]);
+}
+
 const tasksRepository = {
   createTask,
-  getAllTasks,
-}
+  retrieveAllTasks,
+  updateTask,
+};
 
 export { tasksRepository };

@@ -6,6 +6,7 @@ import tasksController from "@/controllers/tasks-controller";
 const tasksRouter = Router();
 tasksRouter
   .post("/", validateBody(taskInputSchema), tasksController.createTask)
-  .get("/", tasksController.getAllTasks);
+  .get("/", tasksController.retrieveAllTasks)
+  .patch("/:id", tasksController.updateTask)
 
 export default tasksRouter;

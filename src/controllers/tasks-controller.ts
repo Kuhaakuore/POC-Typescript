@@ -10,14 +10,21 @@ async function createTask(req: Request, res: Response) {
   return res.sendStatus(httpStatus.CREATED);
 }
 
-async function getAllTasks(req: Request, res: Response) {
-  const tasks: Array<Task> = await tasksService.getAllTasks();
+async function retrieveAllTasks(req: Request, res: Response) {
+  const tasks: Array<Task> = await tasksService.retrieveAllTasks();
   return res.status(httpStatus.OK).send(tasks);
+}
+
+async function updateTask(req: Request, res: Response) {
+  const { id } = req.params;
+  await tasksService.updateTask(Number(id));
+  return res.sendStatus(httpStatus.OK);
 }
 
 const tasksController = {
   createTask,
-  getAllTasks
+  retrieveAllTasks,
+  updateTask
 }
 
 export default tasksController;

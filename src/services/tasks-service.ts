@@ -6,14 +6,19 @@ async function createTask(task: Task) {
   await tasksRepository.createTask(name, description, day, author, status);
 }
 
-async function getAllTasks(): Promise<Array<Task>> {
-  const tasks: Array<Task> = await tasksRepository.getAllTasks();
+async function retrieveAllTasks(): Promise<Array<Task>> {
+  const tasks: Array<Task> = await tasksRepository.retrieveAllTasks();
   return tasks;
+}
+
+async function updateTask(id: number) {
+  await tasksRepository.updateTask(id);
 }
 
 const tasksService = {
   createTask,
-  getAllTasks
+  retrieveAllTasks,
+  updateTask
 }
 
 export default tasksService;
