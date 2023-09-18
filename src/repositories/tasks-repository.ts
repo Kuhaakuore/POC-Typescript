@@ -26,10 +26,15 @@ async function updateTask(id: number) {
   ]);
 }
 
+async function deleteTask(id: number) {
+  await connection.query(`DELETE FROM tasks WHERE id = $1`, [id]);
+}
+
 const tasksRepository = {
   createTask,
   retrieveAllTasks,
   updateTask,
+  deleteTask,
 };
 
 export { tasksRepository };

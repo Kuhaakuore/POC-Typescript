@@ -15,10 +15,15 @@ async function updateTask(id: number) {
   await tasksRepository.updateTask(id);
 }
 
+async function deleteTask(id: number) {
+  await tasksRepository.deleteTask(id);
+}
+
 const tasksService = {
   createTask,
   retrieveAllTasks,
-  updateTask
+  updateTask,
+  deleteTask,
 }
 
 export default tasksService;

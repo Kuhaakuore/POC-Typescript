@@ -21,10 +21,17 @@ async function updateTask(req: Request, res: Response) {
   return res.sendStatus(httpStatus.OK);
 }
 
+async function deleteTask(req: Request, res: Response) {
+  const { id } = req.params;
+  await tasksService.deleteTask(Number(id));
+  return res.sendStatus(httpStatus.OK);
+}
+
 const tasksController = {
   createTask,
   retrieveAllTasks,
-  updateTask
+  updateTask,
+  deleteTask
 }
 
 export default tasksController;

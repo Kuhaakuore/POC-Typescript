@@ -8,5 +8,6 @@ tasksRouter
   .post("/", validateBody(taskInputSchema), tasksController.createTask)
   .get("/", tasksController.retrieveAllTasks)
   .patch("/:id", tasksController.updateTask)
+  .delete("/:id", tasksController.deleteTask)
 
 export default tasksRouter;
